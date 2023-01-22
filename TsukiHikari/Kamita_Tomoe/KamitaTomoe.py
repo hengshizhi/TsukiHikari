@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import sys
 import getopt
 import os
@@ -7,11 +8,11 @@ class move:
         self.file_content = open(file,mode='r',encoding='utf-8').read() #读取文件
         luj = '\\'.join(file.split('\\')[0:-1])  #更换运行路径
         self.parse() #语法分析
-        self.Final_code = '\n'.join([f'import KamitaTomoe.{i} as {i}' for i in ['output','html']])+'\n' \
-        +f'import os \nos.chdir(\'{luj}\')' \
+        self.Final_code = '\n'.join(['import KamitaTomoe.'+i+' as '+i for i in ['output','html']])+'\n' \
+        +'import os \nos.chdir(\''+luj+'\')' \
         +self.Final_code.replace('import KamitaTomoe.output as output','').replace('import KamitaTomoe.html as html','')
         self.Final_code += '\nprint(output.Web_output())' #返回生成的HTML
-    def Program_parse(self,code:str): #程序代码部分语法分析
+    def Program_parse(self,code): #程序代码部分语法分析
         self.Final_code += (code+'\n')
     def parse(self): #语法分析
         '''语法解析'''
@@ -21,7 +22,7 @@ class move:
                 if(i1 == 0): #执行程序代码
                     self.Program_parse(i[0])
                 else:
-                    self.Final_code += f'output.echo(\'\'\'{i[1]}\'\'\')\n'
+                    self.Final_code += 'output.echo(\'\'\''+i[1]+'\'\'\')\n'
 if __name__ == '__main__':
     file = ''.join(getopt.getopt(sys.argv[1:],'-f',['file'])[1])
     Extension = file.split('.')[-1]
