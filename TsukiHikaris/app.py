@@ -26,10 +26,6 @@ INDEX = \
 '404'
 ]
 
-
-def interpreter(File_path:str,Extension): #web服务器特定代码文件的解释器
-    if(Extension in ['py','kt']):
-        pass #执行解释器
 def INDEX_File_exists(catalogue:str,INDEX:list = INDEX) -> str:
     '''传入目录,返回有文件的目录'''
     if(catalogue != ''):

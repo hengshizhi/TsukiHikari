@@ -3,11 +3,9 @@ import subprocess,json,base64
 from flask import Response,abort,request
 import os
 import sys
-def get(): #获取所有的GET参数
-    return request.args.to_dict()
-kt = '/root/RemoteWorking/python-cloud-studio-demo/KamitaTomoek' #绝对路径
-root = '/root/RemoteWorking/python-cloud-studio-demo/' #项目根路径
-sys.path.append('/root/RemoteWorking/python-cloud-studio-demo/KamitaTomoek')
+kt = f'{os.path.dirname(__file__)}/KamitaTomoek'
+root = os.path.dirname(__file__)
+sys.path.append(kt)
 os.chdir(kt)
 import main as KtMain
 import KamitaTomoe.session as session
