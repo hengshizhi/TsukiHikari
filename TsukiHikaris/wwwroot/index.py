@@ -5,7 +5,6 @@ import KamitaTomoe.session as session
 import os 
 chdir()
 os.chdir(session._root)
-print(gain.post())
 if(gain.posts('user') == 'shizhi' and gain.posts('password') == '123'):
     output.echo('''登陆成功''')
 else:
