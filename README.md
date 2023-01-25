@@ -8,12 +8,12 @@
 在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行<br>
 比如`http://127.0.0.1:8888/index.py`<br>
 会看的应该可以看到,代码里面开头有一串导入文件,这堆import不是必须的,根据需要选择,python会缓存import的文件<br>
-````
+<code>
 import KamitaTomoe.output as output
 import KamitaTomoe.html as html
 import KamitaTomoe.gain as gain
 import KamitaTomoe.session as session
-````
+</code>
 然后我看也可以看见一个在当前文件未被定义的函数`chdir()`<br>
 这个函数至关重要,在导入 KamitaTomoe 库之后必须使用这个函数,否则可能会在某些需要文件操作的地方报错<br>
 (包括import自定义库),因为这个函数他负责切换python的运行路径<br>
