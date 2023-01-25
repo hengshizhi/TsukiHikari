@@ -1,35 +1,35 @@
 # TsukiHikari
 一个pythonweb框架，给自己方便使用的,平时没事可以拿来玩,做一点小项目<br>
-本项目基于flask框架,所以也就自然支持其他web服务器的部署
-启动命令:python app.py
+本项目基于flask框架,所以也就自然支持其他web服务器的部署<br>
+启动命令:python app.py<br>
 #下面是文档啊
 ##一个例子
-首先,这是一个web服务器,直接运行`app.py`文件就可以启动,然后可以根据需要设置WWWROOT根路径
-在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行
-比如`http://127.0.0.1:8888/index.py`
-会看的应该可以看到,代码里面开头有一串导入文件,这堆import不是必须的,根据需要选择,python会缓存import的文件
+首先,这是一个web服务器,直接运行`app.py`文件就可以启动,然后可以根据需要设置WWWROOT根路径<br>
+在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行<br>
+比如`http://127.0.0.1:8888/index.py`<br>
+会看的应该可以看到,代码里面开头有一串导入文件,这堆import不是必须的,根据需要选择,python会缓存import的文件<br>
 ````
 import KamitaTomoe.output as output
 import KamitaTomoe.html as html
 import KamitaTomoe.gain as gain
 import KamitaTomoe.session as session
 ````
-然后我看也可以看见一个在当前文件未被定义的函数`chdir()`
-这个函数至关重要,在导入 KamitaTomoe 库之后必须使用这个函数,否则可能会在某些需要文件操作的地方报错
-(包括import自定义库),因为这个函数他负责切换python的运行路径
-然后会看到`os.chdir(session._root)`,这个不需要管他,这个切换工作路径是为了使用session,因为只有在项目根路径(即`app.py`的路径才可以使用session,现在原因未知,列如BUG列表,会善后解决)
-然后会看到下面的代码
+然后我看也可以看见一个在当前文件未被定义的函数`chdir()`<br>
+这个函数至关重要,在导入 KamitaTomoe 库之后必须使用这个函数,否则可能会在某些需要文件操作的地方报错<br>
+(包括import自定义库),因为这个函数他负责切换python的运行路径<br>
+然后会看到`os.chdir(session._root)`,这个不需要管他,这个切换工作路径是为了使用session,因为只有在项目根路径(即`app.py`<br>的路径才可以使用session,现在原因未知,列如BUG列表,会善后解决)<br>
+然后会看到下面的代码<br>
 ````
 if(gain.posts('user') == 'shizhi' and gain.posts('password') == '123'):
     output.echo('''登陆成功''')
 else:
     output.echo('''.....(省略号)''')
 ````
-可以看到,这里output.echo复刻了php`echo`函数的功能,他的作用就是给网页输出东西,他有两个参数如下:
-`content,MIME='text/html'`,第一个自然是输出的内容,支持几乎可以输出的所有格式(文本/二进制)
-第二个参数是MIME类型,懂得都懂,不会自学出门左转搜索引擎
-这里还有一个`gain.posts('user') `方法,这个方法传入值是一个字符串,查找POST请求的字段,一般用于表单接收,同类型方法还有:
-`gain.gets`,目前只做了最常用的两种
+可以看到,这里output.echo复刻了php`echo`函数的功能,他的作用就是给网页输出东西,他有两个参数如下:<br>
+`content,MIME='text/html'`,第一个自然是输出的内容,支持几乎可以输出的所有格式(文本/二进制)<br>
+第二个参数是MIME类型,懂得都懂,不会自学出门左转搜索引擎<br>
+这里还有一个`gain.posts('user') `方法,这个方法传入值是一个字符串,查找POST请求的字段,一般用于表单接收,同类型方法还有:<br>
+`gain.gets`,目前只做了最常用的两种<br>
 #方法大全
 ##output
 ````
