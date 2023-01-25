@@ -2,18 +2,18 @@
 一个pythonweb框架，给自己方便使用的,平时没事可以拿来玩,做一点小项目<br>
 本项目基于flask框架,所以也就自然支持其他web服务器的部署<br>
 启动命令:python app.py<br>
-<h1>下面是文档啊</h1>
-<h2>一个例子</h2>
+# 下面是文档啊
+## 一个例子
 首先,这是一个web服务器,直接运行`app.py`文件就可以启动,然后可以根据需要设置WWWROOT根路径<br>
 在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行<br>
 比如`http://127.0.0.1:8888/index.py`<br>
 会看的应该可以看到,代码里面开头有一串导入文件,这堆import不是必须的,根据需要选择,python会缓存import的文件<br>
-`
+````
 import KamitaTomoe.output as output
 import KamitaTomoe.html as html
 import KamitaTomoe.gain as gain
 import KamitaTomoe.session as session
-`
+````
 然后我看也可以看见一个在当前文件未被定义的函数`chdir()`<br>
 这个函数至关重要,在导入 KamitaTomoe 库之后必须使用这个函数,否则可能会在某些需要文件操作的地方报错<br>
 (包括import自定义库),因为这个函数他负责切换python的运行路径<br>
@@ -30,8 +30,8 @@ else:
 第二个参数是MIME类型,懂得都懂,不会自学出门左转搜索引擎<br>
 这里还有一个`gain.posts('user') `方法,这个方法传入值是一个字符串,查找POST请求的字段,一般用于表单接收,同类型方法还有:<br>
 `gain.gets`,目前只做了最常用的两种<br>
-<h1>方法大全</h1>
-<h2>output</h2>
+# 方法大全
+## output
 ````
 headers(headers_c:dict)
 '''自定义请求头:headers_c:请求头,例子{'Cache-Control':'max-age=0'}'''
@@ -55,7 +55,7 @@ redirect:默认为None,如果被修改则是[url,301/302]为重定向,重定向�
 '''
 
 ````
-<h2>gain</h2>
+## gain
 ````
 get() -> dict #获取所有的GET参数
 post() -> dict #获取所有POST参数
@@ -63,7 +63,7 @@ headers() -> dict #获取所有头部信息
 gets(s) -> bool or None #根据请求的键获取值
 posts(s) -> bool or None
 ````
-<h2>session</h2<
+## session
 ````
 _root = None #项目根路径
 File_path = None #文件路径
