@@ -1,9 +1,9 @@
 # TsukiHikari
 一个pythonweb框架，给自己方便使用的,平时没事可以拿来玩
-<br>启动命令:python app.py
-<h1>下面是文档啊</h1>
-<br>首先,这是一个web服务器,直接运行`app.py`文件就可以启动,然后可以根据需要设置WWWROOT根路径
-<br>在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行
+启动命令:python app.py
+#下面是文档啊
+首先,这是一个web服务器,直接运行`app.py`文件就可以启动,然后可以根据需要设置WWWROOT根路径
+在项目的wwwroot下面有一个示例文件:`index.py`,这个文件就相当于web服务器的php文件,访问直接运行
 比如`http://127.0.0.1:8888/index.py`
 会看的应该可以看到,代码里面开头有一串导入文件,这堆import不是必须的,根据需要选择,python会缓存import的文件
 ````
