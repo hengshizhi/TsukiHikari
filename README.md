@@ -17,7 +17,7 @@ import KamitaTomoe.session as session
 然后我看也可以看见一个在当前文件未被定义的函数`chdir()`<br>
 这个函数至关重要,在导入 KamitaTomoe 库之后必须使用这个函数,否则可能会在某些需要文件操作的地方报错<br>
 (包括import自定义库),因为这个函数他负责切换python的运行路径<br>
-然后会看到`os.chdir(session._root)`,这个不需要管他,这个切换工作路径是为了使用session,因为只有在项目根路径(即`app.py`<br>的路径才可以使用session,现在原因未知,列如BUG列表,会善后解决)<br>
+然后会看到`os.chdir(session._root)`,这个不需要管他,这个切换工作路径是为了使用session,因为只有在项目根路径(即`app.py`<br>的路径才可以使用session,现在原因未知,列如BUG列表,会善后解决,提示:已经解决了,如果使用session,在文件末尾必须执行session.move()方法)<br>
 然后会看到下面的代码<br>
 ````
 if(gain.posts('user') == 'shizhi' and gain.posts('password') == '123'):
@@ -67,10 +67,12 @@ def posts(s) -> bool or None
 ````
 _root = None #项目根路径
 File_path = None #文件路径
+session = dict #会话的字典,需要更改session可以直接更改里面的值
 getdict() -> dict:
     '''获取所有session'''
 sessions(s:str):
     '''获取session'''
 modify(m:dict):
     '''修改session'''
+move()#无参数,使用session的话在代码末尾必须要调用这个函数
 ````
